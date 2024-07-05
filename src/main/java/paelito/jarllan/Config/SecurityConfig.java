@@ -2,6 +2,7 @@ package paelito.jarllan.Config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -31,24 +32,17 @@ public class SecurityConfig {
         return configuration.getAuthenticationManager();
     } 
 
-    @Bean
-    static PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
-    }
 
-    @Bean
-    AuthenticationManager authenticationManager(AuthenticationConfiguration configuration)
-    throws Exception{
-         return configuration.getAuthenticationManager();
-    }
+ 
+
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
 
         http.csrf(csrf -> csrf.disable())
-            .authorizeHttRequests((authorize) ->
+            .authorizeHttpRequests((authorize) ->
                 authorize.requestMatchers(HttpMethod.GET, "/api/v1/**").permitAll()
                          .requestMatchers("/api/v1/**").permitAll()
-                         .anyRequest().authentication()   
+                         .anyRequest().authenticated()   
             );
           return http.build();  
     }

@@ -27,6 +27,20 @@ public class UserAuth {
         private Set <Role> roles;
 
         UserAuth(){}
+        
+
+    
+
+
+        public UserAuth(String username, String email, String password) {
+            this.username = username;
+            this.email = email;
+            this.password = password;
+        }
+
+
+
+
 
         public Long getId() {
             return id;

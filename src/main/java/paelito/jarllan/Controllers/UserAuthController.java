@@ -1,8 +1,6 @@
 package paelito.jarllan.Controllers;
 
 import java.util.Collections;
-
-import org.hibernate.mapping.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -48,7 +46,7 @@ public class UserAuthController {
 
         UserAuth user = new UserAuth(
             registrationRequest.getUsername(),
-            registrationRequest.getEmail()
+            registrationRequest.getEmail(),
             passwordEncoder.encode(registrationRequest.getPassword())
         );
 
