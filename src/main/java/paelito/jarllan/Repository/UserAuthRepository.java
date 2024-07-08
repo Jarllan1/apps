@@ -8,7 +8,7 @@ import paelito.jarllan.Model.UserAuth;
 
 public interface UserAuthRepository extends JpaRepository<UserAuth,Long> {
     Optional<UserAuth> findByEmail(String email);
-    Optional<UserAuth> findByUserName(String userName);
+    Optional<UserAuth> findByUsername(String username);
     Optional<UserAuth> findByUsernameOrEmail(String email, String username);
 
     Boolean existsByEmail(String email);
