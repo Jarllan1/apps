@@ -18,7 +18,7 @@ import paelito.jarllan.Repository.RoleRepository;
 import paelito.jarllan.Repository.UserAuthRepository;
 
 @RestController
-@RequestMapping
+@RequestMapping("/api/v1/auth")
 public class UserAuthController {
 
     @Autowired
