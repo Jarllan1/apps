@@ -58,6 +58,7 @@ public class ProductControllers {
                 product.setProductName(newProduct.getProductName());
                 product.setDescription(newProduct.getDescription());
                 product.setPrice(newProduct.getPrice());
+                product.setUrl(newProduct.getUrl());
                 return repo.save(product);
             }).orElseGet(()->{
                 return repo.save(newProduct);

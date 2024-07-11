@@ -16,19 +16,29 @@ public class Product {
     private String productName;
     private String description;
     private double price;
+    private String url;
 
     Product(){}
     
-    public Product(String productName, String description, double price) {
+    public Product(String productName, String description, double price, String url) {
         this.productName = productName;
         this.description = description;
         this.price = price;
+        this.url = url;
     }
 
     //getters
     
     public long Id() {
         return id;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getProductName() {
